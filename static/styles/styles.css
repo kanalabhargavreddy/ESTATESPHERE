@@ -1,0 +1,61 @@
+body {
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Montserrat', serif;
+}
+
+/* Other styles remain unchanged */
+.input-box {
+    width: 300px;
+    height: 30px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    background-color: transparent;
+}
+
+.btn, .btn-black {
+    width: 150px;
+    height: 35px;
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-black {
+    margin: 5px;
+    width: 75px;
+}
+
+.btn:hover, .btn-black:hover {
+    background-color: darkgray;
+}
+
+.login-container, .registration-container {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#registrationForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#registrationForm .btn-black {
+    margin-top: 10px;
+    width: 150px;
+}

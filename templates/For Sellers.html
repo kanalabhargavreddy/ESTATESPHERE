@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Land Details</title>
+    <link href="https://cdn.tailwindcss.com?plugins=forms,typography" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js" defer init></script>
+    <script type="text/javascript">
+        window.tailwind.config = {
+            darkMode: ['class'],
+            theme: {
+                extend: {
+                    fontFamily: {
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        border: 'hsl(var(--border))',
+                        input: 'hsl(var(--input))',
+                        ring: 'hsl(var(--ring))',
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: {
+                            DEFAULT: 'hsl(var(--primary))',
+                            foreground: 'hsl(var(--primary-foreground))'
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            :root {
+                --background: 0 0% 100%;
+                --foreground: 0 0% 10%;
+                --primary: 240 5.9% 10%;
+                --primary-foreground: 0 0% 98%;
+            }
+            .dark {
+                --background: 240 10% 5%;
+                --foreground: 0 0% 98%;
+                --primary: 0 0% 98%;
+                --primary-foreground: 240 5.9% 10%;
+            }
+        }
+    </style>
+    <style type="text/tailwindcss">
+        .input-field {
+            @apply w-full p-2 border border-gray-300 rounded text-gray-700 placeholder-gray-400;
+        }
+        .submit-button {
+            @apply bg-black text-white py-2 px-4 rounded w-full mt-4 hover:bg-gray-800;
+        }
+        .label-text {
+            @apply text-xl font-semibold text-gray-900 mb-2;
+        }
+        .form-group {
+            @apply mb-6;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
+    <div class="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
+        <h1 class="text-2xl font-bold mb-8 text-center">Upload Land Details</h1>
+        <form method="POST" enctype="multipart/form-data" class="grid grid-cols-1 gap-4">
+            <div class="form-group">
+                <label class="label-text" style="font-size:30px">Title      :</label>
+                <input type="text" name="title" class="input-field" placeholder="Enter title" required>
+            </div>
+            <div class="form-group">
+                <label class="label-text" style="font-size:30px">Location    :</label>
+                <input type="text" name="location" class="input-field" placeholder="Enter location" required>
+            </div>
+            <div class="form-group">
+                <label class="label-text" style="font-size:30px">Description :</label>
+                <textarea name="description" class="input-field h-24" placeholder="Enter description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label class="label-text" style="font-size:30px">Price       :</label>
+                <input type="number" name="price" class="input-field" placeholder="Enter price" required>
+            </div>
+            <div class="form-group">
+                <label class="label-text" style="font-size:30px">Phone Number:</label>
+                <input type="tel" name="phone" class="input-field" placeholder="Enter phone number" required>
+            </div>
+            <div class="form-group">
+                <label class="label-text" style="font-size:30px">Images      :</label>
+                <input type="file" name="images" class="input-field" accept="image/*" multiple required>
+            </div>
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

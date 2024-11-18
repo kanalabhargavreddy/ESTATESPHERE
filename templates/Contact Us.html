@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        window.tailwind.config = {
+            darkMode: ['class'],
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif']
+                    },
+                    colors: {
+                        border: 'hsl(var(--border))',
+                        input: 'hsl(var(--input))',
+                        ring: 'hsl(var(--ring))',
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: {
+                            DEFAULT: 'hsl(var(--primary))',
+                            foreground: 'hsl(var(--primary-foreground))'
+                        },
+                        secondary: {
+                            DEFAULT: 'hsl(var(--secondary))',
+                            foreground: 'hsl(var(--secondary-foreground))'
+                        },
+                        accent: {
+                            DEFAULT: 'hsl(var(--accent))',
+                            foreground: 'hsl(var(--accent-foreground))'
+                        },
+                        card: {
+                            DEFAULT: 'hsl(var(--card))',
+                            foreground: 'hsl(var(--card-foreground))'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            :root {
+                --background: 0 0% 100%;
+                --foreground: 240 10% 10%; /* Darkened foreground for better contrast */
+                --card: 0 0% 100%;
+                --card-foreground: 240 10% 20%; /* Darkened text on cards */
+                --primary: 240 5.9% 15%; /* Slightly darker primary color */
+                --primary-foreground: 0 0% 100%;
+                --secondary: 240 4.8% 80%;
+                --secondary-foreground: 240 5.9% 20%;
+                --accent: 240 4.8% 60%;
+                --accent-foreground: 0 0% 98%;
+                --border: 240 5.9% 90%;
+                --input: 240 5.9% 90%;
+                --ring: 240 5.9% 10%;
+            }
+        }
+        .active {
+      font-weight: bold;
+      color: #f9f904 !important; /* Highlight color */
+    }
+    </style>
+</head>
+<body class="bg-background text-primary-foreground min-h-screen font-sans">
+
+    <!-- Main Navbar -->
+    <nav class="bg-white shadow fixed top-0 left-0 w-full z-10"> <!-- Ensure navbar is fixed to the top -->
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <!-- EstateSphere Logo -->
+            <a class="text-2xl font-bold text-primary" href="{{ url_for('dashboard') }}">Estate<span class="text-warning" style="color:#f9f904;">Sphere</span></a>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex space-x-4">
+                <a href="{{ url_for('aboutus') }}" class="text-primary hover:text-primary/80">About Us</a>
+                <a href="{{ url_for('buyers') }}" class="text-primary hover:text-primary/80">For Buyers</a>
+                <a href="{{ url_for('sellers') }}" class="text-primary hover:text-primary/80">For Sellers</a>
+                <a href="{{ url_for('logout') }}" class="text-primary hover:text-primary/80">Logout</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-toggle" class="md:hidden text-primary focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white shadow">
+        <div class="flex flex-col p-4">
+            <a href="{{ url_for('aboutus') }}" class="text-primary hover:text-primary/80">About Us</a>
+            <a href="{{ url_for('buyers') }}" class="text-primary hover:text-primary/80">For Buyers</a>
+            <a href="{{ url_for('sellers') }}" class="text-primary hover:text-primary/80">For Sellers</a>
+            <a href="{{ url_for('logout') }}" class="text-primary hover:text-primary/80">Logout</a>
+        </div>
+    </div>
+
+    <!-- Main Content Centered -->
+    <div class="flex items-center justify-center min-h-screen mt-16"> <!-- Ensure content is centered -->
+        <div class="text-center">
+            <h1 class="text-4xl font-extrabold mb-6">Get in Touch</h1>
+            <div class="bg-card p-8 rounded-xl shadow-xl max-w-md w-full flex flex-col items-center mb-8">
+                <h2 class="text-2xl font-semibold mb-4 text-card-foreground">Need Assistance?</h2>
+                <p class="text-center mb-6 text-card-foreground">Our dedicated team is ready to support you. Contact us through any of the following channels:</p>
+                <div class="flex flex-col items-center space-y-6">
+                    <a href="tel:8247695112" class="flex items-center space-x-3 cursor-pointer text-primary">
+                        <img aria-hidden="true" alt="phone" src="https://openui.fly.dev/openui/24.svg?text=📞" />
+                        <span class="text-lg font-medium">8247695112</span>
+                    </a>
+                    <a href="mailto:estatespherefeedback@gmail.com" class="flex items-center space-x-3 cursor-pointer text-primary">
+                        <img aria-hidden="true" alt="email" src="https://openui.fly.dev/openui/24.svg?text=@" />
+                        <span class="text-lg font-medium">estatespherefeedback@gmail.com</span>
+                    </a>
+                    <button onclick="redirectToWhatsApp()" class="bg-accent text-accent-foreground px-6 py-3 rounded-lg hover:bg-accent/80 mt-8 cursor-pointer">
+                        Start a Live Chat
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function redirectToWhatsApp() {
+            const phoneNumber = "7731819679";  // Replace with your WhatsApp number in international format
+            const whatsappUrl = `https://wa.me/${phoneNumber}`;
+            window.location.href = whatsappUrl;
+        }
+
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentUrl = window.location.pathname;
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentUrl) {
+          link.classList.add('active');
+        }
+      });
+    });
+    </script>
+</body>
+</html>

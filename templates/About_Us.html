@@ -1,0 +1,15 @@
+<!-- Navigation Links -->
+<div class="hidden md:flex space-x-4">
+    <a href="{{ url_for('buyers') }}" class="text-primary hover:text-primary/80">For Buyers</a>
+    <a href="{{ url_for('sellers') }}" class="text-primary hover:text-primary/80">For Sellers</a>
+    <a href="{{ url_for('logout') }}" class="text-primary hover:text-primary/80">Logout</a>
+</div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="md:hidden hidden bg-white shadow">
+    <div class="flex flex-col p-4">
+        <a href="{{ url_for('buyers') }}" class="text-primary hover:text-primary/80">For Buyers</a>
+        <a href="{{ url_for('sellers') }}" class="text-primary hover:text-primary/80">For Sellers</a>
+        <a href="{{ url_for('logout') }}" class="text-primary hover:text-primary/80">Logout</a>
+    </div>
+</div> 
